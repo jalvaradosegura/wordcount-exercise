@@ -1,9 +1,11 @@
 import os
 
-from django.core.files.uploadedfile import SimpleUploadedFile
+from django.conf import settings
 from django.test import TestCase
 from django.urls import resolve, reverse
 
+from .constants import FILENAME_FOR_TESTS
+from .factories import FileFactory
 from .models import File
 from .views import UploadFileView
 
@@ -17,13 +19,18 @@ class UploadFileViewTests(TestCase):
 
 
 class FileModelTests(TestCase):
-    filename = 'some_file.txt'
-
     def test_str(self):
-        some_file = File.objects.create(
-            file=SimpleUploadedFile(self.filename, b'hello world')
-        )
-        self.assertEqual(str(some_file), 'some_file.txt')
+        some_file = FileFactory()
+        self.assertEqual(str(some_file), FILENAME_FOR_TESTS)
 
     def tearDown(self):
-        os.remove(self.filename)
+        os.remove(settings.MEDIA_ROOT / FILENAME_FOR_TESTS)
+
+
+class FileFactoryTests(TestCase):
+    def test_create_an_instance(self):
+        self.some_file = FileFactory()
+        self.assertEqual(File.objects.count(), 1)
+
+    def tearDown(self):
+        os.remove(settings.MEDIA_ROOT / FILENAME_FOR_TESTS)
