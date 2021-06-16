@@ -14,4 +14,7 @@ class FileFactoryTests(TestCase):
         self.assertEqual(File.objects.count(), 1)
 
     def tearDown(self):
-        os.remove(settings.MEDIA_ROOT / FILENAME_FOR_TESTS)
+        try:
+            os.remove(settings.MEDIA_ROOT / FILENAME_FOR_TESTS)
+        except FileNotFoundError:
+            pass

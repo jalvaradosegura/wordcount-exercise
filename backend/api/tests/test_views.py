@@ -1,5 +1,7 @@
 from http import HTTPStatus
+import os
 
+from django.conf import settings
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
 from django.urls import resolve, reverse
@@ -26,7 +28,7 @@ class UploadFileViewTests(TestCase):
         )
 
         self.assertEqual(response.status_code, HTTPStatus.CREATED)
-        self.assertEqual(response.json()['status'], 'ok')
+        self.assertEqual(response.json()['awesome'], 1)
 
     def test_post_request_fail_due_bad_file_extension(self):
         some_file = SimpleUploadedFile(
@@ -42,3 +44,9 @@ class UploadFileViewTests(TestCase):
         self.assertEqual(
             response.json()['file'], ['Not a valid file extension']
         )
+
+    def tearDown(self):
+        try:
+            os.remove(settings.MEDIA_ROOT / FILENAME_FOR_TESTS)
+        except FileNotFoundError:
+            pass

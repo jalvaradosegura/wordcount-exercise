@@ -9,8 +9,11 @@ class UploadFileView(APIView):
     def post(self, request, *args, **kwargs):
         file_serializer = FileSerializer(data=request.data)
         if file_serializer.is_valid():
+            instance = file_serializer.save()
+            words_occurrences = instance.get_words_occurrences()
+            instance.delete()
             return Response(
-                    {'status': 'ok'}, status=status.HTTP_201_CREATED
+                words_occurrences, status=status.HTTP_201_CREATED
             )
         return Response(
             file_serializer.errors, status=status.HTTP_400_BAD_REQUEST
