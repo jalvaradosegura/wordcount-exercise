@@ -8,4 +8,9 @@ class File(models.Model):
         return self.file.name
 
     def get_words_occurrences(self):
-        return {'dogs': 2}
+        file_content = str(self.file.read(), 'utf-8')
+        chars_to_replace = '?¿()[]{}><!$.,\'\"'
+        for c in chars_to_replace:
+            file_content = file_content.replace(c, '')
+        words = file_content.split(' ')
+        return {word: words.count(word) for word in words}
