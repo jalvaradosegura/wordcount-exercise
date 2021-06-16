@@ -1,0 +1,9 @@
+# Django
+db.sqlite3
+
+# Vim
+*.swp
+*.swo
+
+# macOS
+.DS_Store
