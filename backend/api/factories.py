@@ -7,4 +7,6 @@ class FileFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = 'api.File'
 
-    file = factory.django.FileField(filename=FILENAME_FOR_TESTS)
+    file = factory.django.FileField(
+        filename=FILENAME_FOR_TESTS, data='Some awesome content'
+    )

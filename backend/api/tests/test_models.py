@@ -12,5 +12,9 @@ class FileModelTests(TestCase):
         some_file = FileFactory()
         self.assertEqual(str(some_file), FILENAME_FOR_TESTS)
 
+    def test_get_words_occurrences(self):
+        some_file = FileFactory(file__data='dogs are cool, dogs are great')
+        self.assertEqual(some_file.get_words_occurrences()['dogs'], 2)
+
     def tearDown(self):
         os.remove(settings.MEDIA_ROOT / FILENAME_FOR_TESTS)

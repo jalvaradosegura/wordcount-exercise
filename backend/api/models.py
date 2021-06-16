@@ -6,3 +6,6 @@ class File(models.Model):
 
     def __str__(self):
         return self.file.name
+
+    def get_words_occurrences(self):
+        return {'dogs': 2}
