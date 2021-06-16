@@ -1,1 +1,5 @@
-FILENAME_FOR_TESTS = 'some_file.txt'
+# Core
+ALLOWED_FILE_EXTENSIONS = ('.txt',)
+
+# Tests
+FILENAME_FOR_TESTS = 'some_file' + ALLOWED_FILE_EXTENSIONS[0]
