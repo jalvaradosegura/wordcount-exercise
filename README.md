@@ -27,7 +27,7 @@ make run
 > If you are on Windows, check out how to run Makefile's or just take a look at our [Makefile](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/Makefile) and run the commands manually.
 
 ### 🐍 Using Python
-#### Linux / macOS / Windows
+#### Linux / macOS
 If you don't want to use Docker you can go and use just Python. You will have to install the libraries for each codebase:
 ```sh
 # Note: feel free to use pip instead of pipenv
@@ -47,7 +47,7 @@ pipenv install
 pipenv shell
 
 # Run the client
-python wordcount_client.py -f document.txt
+make run
 ```
-> There is also a Makefile for the [backend](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/backend/Makefile) and another for the [client](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/client/Makefile). They are very useful and worth looking.
+> There is also a Makefile for the [backend](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/backend/Makefile) and another for the [client](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/client/Makefile). They are very useful and worth looking. If you are using Windows, run the code of the Makefile's manually
 
