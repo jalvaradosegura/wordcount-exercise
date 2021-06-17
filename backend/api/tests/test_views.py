@@ -1,16 +1,14 @@
 from http import HTTPStatus
-import os
 
-from django.conf import settings
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.test import TestCase
 from django.urls import resolve, reverse
 
+from .utils import BaseForTests
 from ..constants import FILENAME_FOR_TESTS
 from ..views import UploadFileView
 
 
-class UploadFileViewTests(TestCase):
+class UploadFileViewTests(BaseForTests):
     def test_uses_the_correct_view(self):
         response = resolve(reverse('upload_file'))
         self.assertEqual(
@@ -44,9 +42,3 @@ class UploadFileViewTests(TestCase):
         self.assertEqual(
             response.json()['file'], ['Not a valid file extension']
         )
-
-    def tearDown(self):
-        try:
-            os.remove(settings.MEDIA_ROOT / FILENAME_FOR_TESTS)
-        except FileNotFoundError:
-            pass

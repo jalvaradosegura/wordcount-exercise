@@ -1,13 +1,9 @@
-import os
-
-from django.conf import settings
-from django.test import TestCase
-
+from .utils import BaseForTests
 from ..constants import FILENAME_FOR_TESTS
 from ..factories import FileFactory
 
 
-class FileModelTests(TestCase):
+class FileModelTests(BaseForTests):
     def test_str(self):
         some_file = FileFactory()
         self.assertEqual(str(some_file), FILENAME_FOR_TESTS)
@@ -27,9 +23,3 @@ class FileModelTests(TestCase):
             some_file.get_words_occurrences(),
             {'dogs': 2, 'are': 2, 'cool': 1, 'great': 1}
         )
-
-    def tearDown(self):
-        try:
-            os.remove(settings.MEDIA_ROOT / FILENAME_FOR_TESTS)
-        except FileNotFoundError:
-            pass

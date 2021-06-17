@@ -1,20 +1,9 @@
-import os
-
-from django.conf import settings
-from django.test import TestCase
-
-from ..constants import FILENAME_FOR_TESTS
+from .utils import BaseForTests
 from ..factories import FileFactory
 from ..models import File
 
 
-class FileFactoryTests(TestCase):
+class FileFactoryTests(BaseForTests):
     def test_create_an_instance(self):
         self.some_file = FileFactory()
         self.assertEqual(File.objects.count(), 1)
-
-    def tearDown(self):
-        try:
-            os.remove(settings.MEDIA_ROOT / FILENAME_FOR_TESTS)
-        except FileNotFoundError:
-            pass

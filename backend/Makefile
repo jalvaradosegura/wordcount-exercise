@@ -10,6 +10,9 @@ reverse-tests:
 	python manage.py test --reverse
 check-deploy:
 	python manage.py check --deploy
+coverage:
+	coverage run manage.py test
+	coverage report
 help:
 	@echo "=============="
 	@echo "===Commands==="
@@ -24,3 +27,5 @@ help:
 	@echo "    Run tests in reverse"
 	@echo "check-deploy"
 	@echo "    Deployment checklist"
+	@echo "coverage"
+	@echo "    Run coverage + report"
