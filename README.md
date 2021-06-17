@@ -49,5 +49,5 @@ pipenv shell
 # Run the client
 python wordcount_client.py -f document.txt
 ```
-> There is also have a very useful [Makefile](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/backend/Makefile) for the backend.
+> There is also a Makefile for the [backend](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/backend/Makefile) and another for the [client](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/client/Makefile). They are very useful and worth looking.
 
