@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--o64@+lh40v9k$5)-sl#1%*bsxuihkjh6=(_!etfn1+j3e$!5)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'backend']
 
 
 # Application definition
@@ -38,13 +38,17 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-THIRD_PARTY_APPS = ['rest_framework', ]
+THIRD_PARTY_APPS = [
+    'rest_framework',
+    'corsheaders',
+]
 LOCAL_APPS = ['api.apps.ApiConfig', ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -129,3 +133,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+CORS_ALLOWED_ORIGINS = [
+    'http://0.0.0.0:8000',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+    'http://backend:8000',
+]
+# CORS_ALLOW_ALL_ORIGINS = True

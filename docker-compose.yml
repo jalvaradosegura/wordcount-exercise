@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  web:
+    build: ./backend
+    container_name: backend
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+  client:
+    build: ./client
+    environment:
+      - "RUN_ON_CONTAINER=True"
+    command: "python /code/wordcount_client.py -f /code/document.txt"

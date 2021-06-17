@@ -1,12 +1,19 @@
 from http import HTTPStatus
+import os
 import sys
+import time
 
 import requests
 
 
 def main():
+    # Wait for the server to start up
+    time.sleep(3)
+
+    RUN_ON_CONTAINER = os.getenv('RUN_ON_CONTAINER', 'False') == 'True'
+    host = 'backend' if RUN_ON_CONTAINER else 'localhost'
+    endpoint = f'http://{host}:8000/api/v1/upload_file/'
     file_to_send = sys.argv[2]
-    endpoint = 'http://localhost:8000/api/v1/upload_file/'
 
     try:
         with open(file_to_send, 'rb') as f:
