@@ -8,6 +8,8 @@ parallel-tests:
 	python manage.py test --parallel
 reverse-tests:
 	python manage.py test --reverse
+check-deploy:
+	python manage.py check --deploy
 help:
 	@echo "=============="
 	@echo "===Commands==="
@@ -20,3 +22,5 @@ help:
 	@echo "    Run tests in parallel"
 	@echo "reverse-tests"
 	@echo "    Run tests in reverse"
+	@echo "check-deploy"
+	@echo "    Deployment checklist"
