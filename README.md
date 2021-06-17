@@ -36,8 +36,10 @@ make run
 ### 🐍 Using Python
 If you don't want to use Docker you can go and use just Python. You will have to install the libraries for each codebase:
 ```sh
-# Note: feel free to use pip instead of pipenv
-# Go to the backend folder and install the dependencies
+# Go to the backend folder
+cd backend/
+
+# Install the dependencies
 pipenv install
 
 # Activate the virtual environment
@@ -46,7 +48,10 @@ pipenv shell
 # Run the server
 python manage.py runserver
 
-# On a new tab, go to the client folder and install the dependencies
+# On a new tab, go to the client folder
+cd client/
+
+# Install the dependencies
 pipenv install
 
 # Activate the virtual environment
@@ -55,4 +60,4 @@ pipenv shell
 # Run the client
 python3 wordcount_client.py -f document.txt
 ```
-> Each codebase has a requirements.txt in case you want to use pip instead of pipenv. So you can execute: pip install -r requirements.txt
+> Each codebase has a requirements.txt in case you want to use pip instead of [pipenv](https://pypi.org/project/pipenv/). So you can execute: pip install -r requirements.txt
