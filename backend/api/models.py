@@ -1,6 +1,8 @@
 import numpy as np
 from django.db import models
 
+from .constants import SPLIT_TEXT_BY
+
 
 class File(models.Model):
     file = models.FileField(blank=False, null=False)
@@ -16,7 +18,7 @@ class File(models.Model):
         for c in chars_to_replace:
             file_content = file_content.replace(c, '')
 
-        words = list(filter(None, file_content.split(' ')))
+        words = list(filter(None, file_content.split(SPLIT_TEXT_BY)))
 
         # Note: version using standard Python
         # return {word: words.count(word) for word in words}
