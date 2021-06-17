@@ -16,7 +16,7 @@ coverage:
 black:
 	black . -l 79 --color -S
 isort:
-	isort .  -m 3 --color
+	isort . -m 3 --color
 help:
 	@echo "=============="
 	@echo "===Commands==="
