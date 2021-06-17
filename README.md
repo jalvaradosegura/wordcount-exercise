@@ -9,26 +9,31 @@ Send a .txt file from the client to the server. The server will respond a .json,
 > The group of kanjis means Katana
 
 ## Structure
+It's worth mentioning that the are 3 Makefiles within the project. Each of them show you the most common commands used by each codebase. Press on the codebases of the following table to see their respective Makefile:
 
-| Codebase               |      Summary              |
-| :--------------------: | :-----------------------: |
-| backend/               |      Django + DRF + numpy |
-| client/                |      Python + requests    |
+| Codebase                                                                                                   |      Summary              |
+| :--------------------------------------------------------------------------------------------------------: | :-----------------------: |
+| [backend/](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/backend/Makefile)               |      Django + DRF + numpy |
+| [client/](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/client/Makefile)                 |      Python + requests    |
+| [./](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/Makefile)                             |      docker-compose       |
 
 ## Install & run
 ### 🐳 Using Docker
 If you have [Docker](https://docs.docker.com/engine/install/) installed, this will be very easy:
 
-#### Linux / MacOS
 ```sh
-# On the root (This will install and immediately send a request)
+# Option 1
+# On the root of the project (This will install and immediately send a request)
+docker-compose up --build
+
+# Option 2
+# If you are using Linux or macOS you can also run the project by using the Makefile (On the root of the project as well)
 make run
 ```
 
-> If you are on Windows, check out how to run Makefile's or just take a look at our [Makefile](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/Makefile) and run the commands manually.
+> If you are on Windows and you want to use the Makefile, check out [how to run a Makefile](https://stackoverflow.com/questions/2532234/how-to-run-a-makefile-in-windows) or just take a look at our [Makefile](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/Makefile) and run the commands manually.
 
 ### 🐍 Using Python
-#### Linux / macOS
 If you don't want to use Docker you can go and use just Python. You will have to install the libraries for each codebase:
 ```sh
 # Note: feel free to use pip instead of pipenv
@@ -39,7 +44,7 @@ pipenv install
 pipenv shell
 
 # Run the server
-make run
+python manage.py runserver
 
 # On a new tab, go to the client folder and install the dependencies
 pipenv install
@@ -48,7 +53,6 @@ pipenv install
 pipenv shell
 
 # Run the client
-make run
+python3 wordcount_client.py -f document.txt
 ```
-> There is also a Makefile for the [backend](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/backend/Makefile) and another for the [client](https://github.com/jalvaradosegura/wordcount-exercise/blob/main/client/Makefile). They are very useful and worth looking. If you are using Windows, run the code of the Makefile's manually
-
+> Each codebase has a requirements.txt in case you want to use pip instead of pipenv. So you can execute: pip install -r requirements.txt
