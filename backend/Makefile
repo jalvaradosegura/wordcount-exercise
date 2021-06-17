@@ -15,7 +15,6 @@ coverage:
 	coverage report
 black:
 	black . -l 79 --color -S
-
 isort:
 	isort .  -m 3 --color
 help:
