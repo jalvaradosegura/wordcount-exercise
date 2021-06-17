@@ -1,5 +1,6 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/jalvaradosegura/wordcount-exercise/badge.svg?branch=main)](https://coveralls.io/github/jalvaradosegura/wordcount-exercise?branch=main)
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 
 # wordcount-exercise
 Send a .txt file from the client to the server. The server will respond a .json, with the ocurrences amount of each word within the .txt file. Then the client will parse this response and print it to the console.
