@@ -16,9 +16,7 @@ class UploadFileView(APIView):
             instance = file_serializer.save()
             words_occurrences = instance.get_words_occurrences()
             instance.delete()
-            return Response(
-                words_occurrences, status=status.HTTP_201_CREATED
-            )
+            return Response(words_occurrences, status=status.HTTP_201_CREATED)
         return Response(
             file_serializer.errors, status=status.HTTP_400_BAD_REQUEST
         )

@@ -45,7 +45,9 @@ THIRD_PARTY_APPS = [
     'drf_yasg',
     'corsheaders',
 ]
-LOCAL_APPS = ['api.apps.ApiConfig', ]
+LOCAL_APPS = [
+    'api.apps.ApiConfig',
+]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [

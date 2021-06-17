@@ -1,6 +1,6 @@
-from .utils import BaseForTests
 from ..constants import FILENAME_FOR_TESTS
 from ..factories import FileFactory
+from .utils import BaseForTests
 
 
 class FileModelTests(BaseForTests):
@@ -12,7 +12,7 @@ class FileModelTests(BaseForTests):
         some_file = FileFactory(file__data='dogs are cool?, dogs are great!')
         self.assertEqual(
             some_file.get_words_occurrences(),
-            {'dogs': 2, 'are': 2, 'cool': 1, 'great': 1}
+            {'dogs': 2, 'are': 2, 'cool': 1, 'great': 1},
         )
 
     def test_get_words_occurrences_text_has_new_lines_and_tabs(self):
@@ -21,5 +21,5 @@ class FileModelTests(BaseForTests):
         )
         self.assertEqual(
             some_file.get_words_occurrences(),
-            {'dogs': 2, 'are': 2, 'cool': 1, 'great': 1}
+            {'dogs': 2, 'are': 2, 'cool': 1, 'great': 1},
         )

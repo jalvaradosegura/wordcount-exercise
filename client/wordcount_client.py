@@ -1,7 +1,7 @@
-from http import HTTPStatus
 import os
 import sys
 import time
+from http import HTTPStatus
 
 import requests
 

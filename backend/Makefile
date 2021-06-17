@@ -13,6 +13,11 @@ check-deploy:
 coverage:
 	coverage run manage.py test
 	coverage report
+black:
+	black . -l 79 --color -S
+
+isort:
+	isort .  -m 3 --color
 help:
 	@echo "=============="
 	@echo "===Commands==="
@@ -29,3 +34,7 @@ help:
 	@echo "    Deployment checklist"
 	@echo "coverage"
 	@echo "    Run coverage + report"
+	@echo "black"
+	@echo "    Apply black to the whole project"
+	@echo "isort"
+	@echo "    Apply isort to the whole project"

@@ -3,9 +3,9 @@ from http import HTTPStatus
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.urls import resolve, reverse
 
-from .utils import BaseForTests
 from ..constants import FILENAME_FOR_TESTS
 from ..views import UploadFileView
+from .utils import BaseForTests
 
 
 class UploadFileViewTests(BaseForTests):
@@ -17,8 +17,7 @@ class UploadFileViewTests(BaseForTests):
 
     def test_post_request_success(self):
         some_file = SimpleUploadedFile(
-            FILENAME_FOR_TESTS,
-            b'This is some awesome content'
+            FILENAME_FOR_TESTS, b'This is some awesome content'
         )
 
         response = self.client.post(
@@ -31,7 +30,7 @@ class UploadFileViewTests(BaseForTests):
     def test_post_request_fail_due_bad_file_extension(self):
         some_file = SimpleUploadedFile(
             'this_file_has_an_invalid_extension.pdf',
-            b'This is some awesome content'
+            b'This is some awesome content',
         )
 
         response = self.client.post(

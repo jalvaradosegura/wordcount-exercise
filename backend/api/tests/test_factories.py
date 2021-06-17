@@ -1,6 +1,6 @@
-from .utils import BaseForTests
 from ..factories import FileFactory
 from ..models import File
+from .utils import BaseForTests
 
 
 class FileFactoryTests(BaseForTests):
