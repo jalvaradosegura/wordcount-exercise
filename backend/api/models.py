@@ -12,7 +12,7 @@ class File(models.Model):
         file_content = str(self.file.read(), 'utf-8')
         file_content = file_content.replace('\n', ' ').replace('\t', ' ')
 
-        chars_to_replace = '?¿()[]{}><!$.,\'\"\\'
+        chars_to_replace = '`´:º#?¿()[]{}><!$.,@&\'\"\\'
         for c in chars_to_replace:
             file_content = file_content.replace(c, '')
 

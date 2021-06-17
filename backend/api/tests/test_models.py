@@ -23,3 +23,14 @@ class FileModelTests(BaseForTests):
             some_file.get_words_occurrences(),
             {'dogs': 2, 'are': 2, 'cool': 1, 'great': 1},
         )
+
+    def test_get_words_occurrences_text_has_a_lot_of_symbols(self):
+        some_file = FileFactory(
+            file__data=(
+                '#dogs are `cool?,\n dogs & cats are \ngreat\t! & @user @user'
+            )
+        )
+        self.assertEqual(
+            some_file.get_words_occurrences(),
+            {'dogs': 2, 'are': 2, 'cool': 1, 'great': 1, 'cats': 1, 'user': 2},
+        )
